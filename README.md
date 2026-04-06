@@ -42,6 +42,7 @@ uv run tugas3.py
 
 ```
 Input: A
+Input manual : -1 -1 1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 1 1 1 1 -1 -1 -1 1 -1 -1 -1 1 -1 -1 1 -1 -1 -1 1 -1 1 1 1 -1 1 1 1
 ```
 
 Terdapat **3 data** untuk huruf **A** dalam dataset.
@@ -173,15 +174,60 @@ Terdapat **3 data** untuk huruf **A** dalam dataset.
 
 ---
 
+## Input Manual
+
+```
+Input: -1 -1 1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1
+       -1 -1 1 -1 1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 1 1 1 1 -1 -1 -1
+       1 -1 -1 -1 1 -1 -1 1 -1 -1 -1 1 -1 1 1 1 -1 1 -1 -1
+```
+
+**Pola input 9 x 7:**
+
+```
+. . # # . . .
+. . . # . . .
+. . . # . . .
+. . # . # . .
+. . # . # . .
+. # # # # . .
+. # . . . # .
+. # . . . # .
+# # # . # . .
+```
+
+**Skor tiap huruf:**
+
+
+| Huruf | Skor |
+| ----- | ---- |
+| A     | 50   |
+| B     | -76  |
+| C     | -74  |
+| D     | -58  |
+| E     | -74  |
+| J     | -68  |
+| K     | -54  |
+
+
+
+| Keterangan     | Nilai |
+| -------------- | ----- |
+| Prediksi huruf | **A** |
+
+
+---
+
 ## Ringkasan
 
 
-| Data Uji | Target | Prediksi | Status    |
-| -------- | ------ | -------- | --------- |
-| 1        | A      | A        | **BENAR** |
-| 2        | A      | A        | **BENAR** |
-| 3        | A      | A        | **BENAR** |
+| Data Uji        | Target | Prediksi | Status    |
+| --------------- | ------ | -------- | --------- |
+| Dataset A (1/3) | A      | A        | **BENAR** |
+| Dataset A (2/3) | A      | A        | **BENAR** |
+| Dataset A (3/3) | A      | A        | **BENAR** |
+| Input Manual    | —      | A        |           |
 
 
-> Akurasi: **3/3 (100%)**
+> Akurasi dataset: **3/3 (100%)**
 

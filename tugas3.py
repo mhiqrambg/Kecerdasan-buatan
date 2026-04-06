@@ -135,34 +135,34 @@ def input_test_data(X_train, Y_train, chars):
                 results.append((X_train[idx], Y_train[idx]))
             return results
 
-        if raw.lower() == "manual":
-            print("\nMasukkan 63 angka untuk X, hanya 1 atau -1")
-            print("Pisahkan dengan spasi")
-            raw_x = input("X: ").strip().split()
+        tokens = raw.split()
+        is_numbers = all(t.lstrip("-").isdigit() for t in tokens) if tokens else False
+
+        if raw.lower() == "manual" or is_numbers:
+            if is_numbers:
+                raw_x = tokens
+            else:
+                print("\nMasukkan 63 angka untuk X, hanya 1 atau -1")
+                print("Pisahkan dengan spasi")
+                raw_x = input("X: ").strip().split()
 
             if len(raw_x) != 63:
-                print("Input X harus tepat 63 angka. Coba lagi.")
+                print(
+                    f"Input X harus tepat 63 angka (diterima {len(raw_x)}). Coba lagi."
+                )
                 continue
 
-            x = np.array([int(v) for v in raw_x])
+            try:
+                x = np.array([int(v) for v in raw_x])
+            except ValueError:
+                print("Input X mengandung karakter bukan angka. Coba lagi.")
+                continue
+
             if not np.all(np.isin(x, [-1, 1])):
                 print("Input X hanya boleh berisi 1 dan -1. Coba lagi.")
                 continue
 
-            print("\nMasukkan 7 angka target Y1..Y7, hanya 1 atau -1")
-            print("Contoh untuk K: -1 -1 -1 -1 -1 -1 1")
-            raw_y = input("Y: ").strip().split()
-
-            if len(raw_y) != 7:
-                print("Input Y harus tepat 7 angka. Coba lagi.")
-                continue
-
-            y = np.array([int(v) for v in raw_y])
-            if not np.all(np.isin(y, [-1, 1])):
-                print("Input Y hanya boleh berisi 1 dan -1. Coba lagi.")
-                continue
-
-            return [(x, y)]
+            return [(x, None)]
 
         print(f"Input tidak dikenali: '{raw}'. Coba lagi.")
 
@@ -197,8 +197,6 @@ def main():
         print(f"\n--- Data uji {i + 1}/{len(test_data)} ---")
         print_pattern(x)
 
-        target_label = y_vector_to_label(y_target_vector)
-
         idx, scores = predict(W, b, x)
         pred_label = LABELS[idx]
 
@@ -206,14 +204,16 @@ def main():
         for huruf, skor in zip(LABELS, scores):
             print(f"  {huruf} = {int(skor)}")
 
-        print(f"\nTarget Y      : {' '.join(map(str, y_target_vector))}")
-        print(f"Target huruf  : {target_label}")
-        print(f"Prediksi huruf: {pred_label}")
+        print(f"\nPrediksi huruf: {pred_label}")
 
-        if pred_label == target_label:
-            print("Status        : BENAR")
-        else:
-            print("Status        : SALAH")
+        if y_target_vector is not None:
+            target_label = y_vector_to_label(y_target_vector)
+            print(f"Target Y      : {' '.join(map(str, y_target_vector))}")
+            print(f"Target huruf  : {target_label}")
+            if pred_label == target_label:
+                print("Status        : BENAR")
+            else:
+                print("Status        : SALAH")
 
 
 if __name__ == "__main__":
