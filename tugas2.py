@@ -195,6 +195,7 @@ def main():
 
     for i, (x, y_target_vector) in enumerate(test_data):
         print(f"\n--- Data uji {i + 1}/{len(test_data)} ---")
+        print(f"\nNilai X: {' '.join(map(str, x))}")
         print_pattern(x)
 
         idx, scores = predict(W, b, x)

@@ -1,4 +1,4 @@
-# Output Tugas 3 — Perceptron Pengenalan Huruf (3 Data Uji)
+# Output Tugas 2 — Perceptron Pengenalan Huruf (3 Data Uji)
 
 ## Instalasi
 
@@ -21,13 +21,12 @@ uv sync
 ## Menjalankan Program
 
 ```bash
-uv run tugas3.py
+uv run tugas2.py
 ```
 
 ---
 
 ## Training Model
-
 
 | Parameter     | Nilai    |
 | ------------- | -------- |
@@ -37,12 +36,10 @@ uv run tugas3.py
 | Learning Rate | 1        |
 | Epochs        | 100      |
 
-
 ## Input Data Uji
 
 ```
 Input: A
-Input manual : -1 -1 1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 1 1 1 1 -1 -1 -1 1 -1 -1 -1 1 -1 -1 1 -1 -1 -1 1 -1 1 1 1 -1 1 1 1
 ```
 
 Terdapat **3 data** untuk huruf **A** dalam dataset.
@@ -53,6 +50,12 @@ Terdapat **3 data** untuk huruf **A** dalam dataset.
 
 ### Data Uji 1/3
 
+**Nilai X:**
+
+```
+-1 -1 1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 1 1 1 1 -1 -1 -1 1 -1 -1 -1 1 -1 -1 1 -1 -1 -1 1 -1 1 1 1 -1 1 1 1
+```
+
 **Pola input 9 x 7:**
 
 ```
@@ -69,108 +72,108 @@ Terdapat **3 data** untuk huruf **A** dalam dataset.
 
 **Skor tiap huruf:**
 
-
 | Huruf | Skor |
 | ----- | ---- |
-| A     | 54   |
-| B     | -84  |
-| C     | -70  |
-| D     | -70  |
-| E     | -70  |
-| J     | -80  |
-| K     | -54  |
+| A     | 8    |
+| B     | -88  |
+| C     | -76  |
+| D     | -76  |
+| E     | -46  |
+| J     | -62  |
+| K     | -56  |
 
-
-
-| Keterangan     | Nilai                 |
-| -------------- | --------------------- |
+| Keterangan     | Nilai                  |
+| -------------- | ---------------------- |
 | Target Y       | `1 -1 -1 -1 -1 -1 -1` |
-| Target huruf   | A                     |
-| Prediksi huruf | A                     |
-| **Status**     | **BENAR**             |
-
+| Target huruf   | A                      |
+| Prediksi huruf | A                      |
+| **Status**     | **BENAR**              |
 
 ---
 
 ### Data Uji 2/3
 
+**Nilai X:**
+
+```
+-1 -1 -1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 1 -1 -1 -1 1 -1 -1 1 1 1 1 1 -1 -1 1 -1 -1 -1 1 -1 -1 1 -1 -1 -1 1 -1
+```
+
 **Pola input 9 x 7:**
 
 ```
-. . # # . . .
+. . . # . . .
 . . . # . . .
 . . . # . . .
 . . # . # . .
 . . # . # . .
-. # # # # . .
+. # . . . # .
+. # # # # # .
 . # . . . # .
 . # . . . # .
-# # # . # # #
 ```
 
 **Skor tiap huruf:**
 
-
 | Huruf | Skor |
 | ----- | ---- |
-| A     | 54   |
-| B     | -84  |
-| C     | -70  |
-| D     | -70  |
-| E     | -70  |
-| J     | -80  |
-| K     | -54  |
+| A     | 32   |
+| B     | -52  |
+| C     | -60  |
+| D     | -44  |
+| E     | -50  |
+| J     | -22  |
+| K     | -16  |
 
-
-
-| Keterangan     | Nilai                 |
-| -------------- | --------------------- |
+| Keterangan     | Nilai                  |
+| -------------- | ---------------------- |
 | Target Y       | `1 -1 -1 -1 -1 -1 -1` |
-| Target huruf   | A                     |
-| Prediksi huruf | A                     |
-| **Status**     | **BENAR**             |
-
+| Target huruf   | A                      |
+| Prediksi huruf | A                      |
+| **Status**     | **BENAR**              |
 
 ---
 
 ### Data Uji 3/3
 
+**Nilai X:**
+
+```
+-1 -1 -1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 1 -1 -1 -1 1 -1 -1 1 1 1 1 1 -1 1 -1 -1 -1 -1 -1 1 1 -1 -1 -1 -1 -1 1 1 1 -1 -1 -1 1 1
+```
+
 **Pola input 9 x 7:**
 
 ```
-. . # # . . .
 . . . # . . .
 . . . # . . .
 . . # . # . .
 . . # . # . .
-. # # # # . .
 . # . . . # .
-. # . . . # .
-# # # . # # #
+. # # # # # .
+# . . . . . #
+# . . . . . #
+# # . . . # #
 ```
 
 **Skor tiap huruf:**
 
-
 | Huruf | Skor |
 | ----- | ---- |
-| A     | 54   |
-| B     | -84  |
-| C     | -70  |
-| D     | -70  |
-| E     | -70  |
-| J     | -80  |
-| K     | -54  |
+| A     | 0    |
+| B     | -28  |
+| C     | -38  |
+| D     | -36  |
+| E     | -28  |
+| J     | -30  |
+| K     | -18  |
 
-
-
-| Keterangan     | Nilai                 |
-| -------------- | --------------------- |
+| Keterangan     | Nilai                  |
+| -------------- | ---------------------- |
 | Target Y       | `1 -1 -1 -1 -1 -1 -1` |
-| Target huruf   | A                     |
-| Prediksi huruf | A                     |
-| **Status**     | **BENAR**             |
-
+| Target huruf   | A                      |
+| Prediksi huruf | A                      |
+| **Status**     | **BENAR**              |
 
 ---
 
@@ -180,6 +183,12 @@ Terdapat **3 data** untuk huruf **A** dalam dataset.
 Input: -1 -1 1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1
        -1 -1 1 -1 1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 1 1 1 1 -1 -1 -1
        1 -1 -1 -1 1 -1 -1 1 -1 -1 -1 1 -1 1 1 1 -1 1 -1 -1
+```
+
+**Nilai X:**
+
+```
+-1 -1 1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 1 1 1 1 -1 -1 -1 1 -1 -1 -1 1 -1 -1 1 -1 -1 -1 1 -1 1 1 1 -1 1 -1 -1
 ```
 
 **Pola input 9 x 7:**
@@ -198,7 +207,6 @@ Input: -1 -1 1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1
 
 **Skor tiap huruf:**
 
-
 | Huruf | Skor |
 | ----- | ---- |
 | A     | 50   |
@@ -209,17 +217,13 @@ Input: -1 -1 1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1
 | J     | -68  |
 | K     | -54  |
 
-
-
 | Keterangan     | Nilai |
 | -------------- | ----- |
 | Prediksi huruf | **A** |
 
-
 ---
 
 ## Ringkasan
-
 
 | Data Uji        | Target | Prediksi | Status    |
 | --------------- | ------ | -------- | --------- |
@@ -228,6 +232,4 @@ Input: -1 -1 1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 -1 1 -1 -1 -1
 | Dataset A (3/3) | A      | A        | **BENAR** |
 | Input Manual    | —      | A        |           |
 
-
 > Akurasi dataset: **3/3 (100%)**
-
